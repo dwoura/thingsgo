@@ -1,0 +1,13 @@
+mqtt:
+  broker: 47.105.41.204:1883
+  user: root
+  pass: root
+  topicToSubscribe: device/attributes
+  topicToPublish: device/attributes
+  topicToStatus: device/status
+  gateway_topic: gateway/attributes
+  #消息服务质量 0：消息最多传递一次，如果当时客户端不可用，则会丢失该消息。1：消息传递至少 1 次。2：消息仅传送一次。
+  qos: 0
+
+api:
+  http_host: 47.105.41.204:8083
