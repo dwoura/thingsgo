@@ -1,0 +1,128 @@
+<template>
+	<div>
+		<map class="positFemr" show-location :latitude="latitude" :longitude="longitude" scale="15" :markers="markers"
+			@regionchange="regionchange" @callouttap="navigation" @markertap="markertaptap" @tap="tapMap">
+				<cover-view class="among" v-if="showOper">
+					详情信息
+					</cover-image>
+				</cover-view>
+		</map>
+	</div>
+</template>
+
+<script>
+	import {
+		mapState
+	} from 'vuex'
+
+	export default {
+		props: {
+			latitude: { //纬度
+				type: Number,
+				default: ''
+			},
+			longitude: { //经度
+				type: Number,
+				default: ''
+			},
+			markers: { //点数据
+				type: Array,
+				default: []
+			},
+			showOper:{
+				type: Boolean,
+				default: false
+			}
+		},
+		methods: {
+			regionchange(e) {
+				this.$emit('regionchange', e)
+			},
+			navigation(e) {
+				this.$emit('navigation', e)
+			},
+			relativeposi() {
+				uni.createMapContext("map", this).moveToLocation({
+					latitude: this.latitude,
+					longitude: this.longitude,
+				});
+			},
+			markertaptap(e) {
+				this.$emit('markertaptap', e)
+			},
+			tapMap(e) {
+				this.$emit('tapMap', e)
+			},
+		},
+	}
+</script>
+
+<style scoped>
+	.positFemr {
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+	.coloena {
+		color: #000;
+		background: #fff;
+		padding: 15rpx 20rpx;
+		border-radius: 5px;
+		font-size: 28rpx;
+		box-shadow: 1px 2px 6px 1px rgba(130, 146, 188, 0.3400);
+		overflow: hidden;
+	}
+
+	.left {
+		float: left;
+		width: 78rpx;
+		height: 78rpx;
+		border-radius: 50%;
+		margin-top: 5rpx;
+	}
+
+	.right {
+		margin-left: 90rpx;
+		font-weight: none;
+
+	}
+
+	.tieoarr {
+		font-weight: bold;
+		margin-bottom: 10rpx;
+	}
+
+	.imgSieor {
+		width: 136rpx;
+		height: 80rpx;
+		display: inline-block;
+	}
+
+	.maoetop {
+		margin-right: 10rpx;
+		display: inline-block;
+	}
+
+	.maoetop1 {
+		color: #0F2E51FF;
+		display: inline-block;
+	}
+
+	.maoetop2 {
+		color: #46C166FF;
+		display: inline-block;
+	}
+
+	.among {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 50%;
+		height: 200rpx;
+		background: red;
+	}
+</style>
