@@ -2,7 +2,7 @@
 	<view>
 		<view class="authorizeBtn">
 			<view class="authorizetitle"><image src="../../static/icon/fisheryLogo.png"/></view>
-			<view class="authorizeInfo">请点击下方【获取授权】使用智慧猪场</view>
+			<view class="authorizeInfo">请点击下方【获取授权】使用数据管理系统</view>
 			<button @click="toCancel" class="cancel">取消授权</button>
 			<!-- #ifdef MP-WEIXIN -->
 			<button @click="getuserinfo">获取授权</button>

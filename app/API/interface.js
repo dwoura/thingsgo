@@ -2,11 +2,11 @@
  * 通用uni-app网络请求
  * 基于 Promise 对象实现更简单的 request 使用方式，支持请求和响应拦截
  */
-let baseUrl = 'http://localhost:9999/'
+let baseUrl = 'http://47.105.41.204:9999/'
 if( uni.getStorageSync('serverAddress')) {
 	baseUrl = uni.getStorageSync('serverAddress')
 } else {
-	baseUrl = "http://localhost:9999/" //baseUrl = "http://47.105.41.204:9999/"
+	baseUrl = "http://47.105.41.204:9999/" //baseUrl = "http://47.105.41.204:9999/"
 }
 export default {
 	config: {
